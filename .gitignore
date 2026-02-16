@@ -1,3 +1,14 @@
-.venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+# IDE (PyCharm / IntelliJ)
+.idea/
+*.iml

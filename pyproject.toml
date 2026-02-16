@@ -10,3 +10,21 @@ dependencies = [
     "pydantic>=2.12.5",
     "uvicorn>=0.40.0",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["venv", ".venv", "build", "dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+# Не ігноруємо E501, щоб Ruff контролював довжину рядка = 100.
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
