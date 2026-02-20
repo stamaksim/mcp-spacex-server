@@ -4,7 +4,6 @@ from fastapi import FastAPI
 
 from src.spacex_client import SpaceXClient
 
-
 # Single shared client instance for the application.
 # In production, this should be created during startup and closed during shutdown.
 client = SpaceXClient()
