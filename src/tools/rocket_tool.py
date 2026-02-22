@@ -22,7 +22,7 @@ class SpaceXRocketTool:
     def __init__(self, client: SpaceXClient) -> None:
         self.client = client
 
-    async def execute(self, arguments: dict[str, Any]):
+    async def execute(self, arguments: dict[str, Any]) -> RocketResponse:
         """
         Execute the rocket retrieval tool.
 
@@ -56,3 +56,4 @@ class SpaceXRocketTool:
             name=raw["name"],
             description=raw["description"],
         )
+
