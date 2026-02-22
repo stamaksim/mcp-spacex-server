@@ -1,8 +1,8 @@
 # Importing tools
 from typing import Any
 
+from src.schemas import RocketResponse
 from src.spacex_client import SpaceXClient
-from src.tools.schemas import RocketResponse
 
 
 class SpaceXRocketTool:
@@ -56,4 +56,3 @@ class SpaceXRocketTool:
             name=raw["name"],
             description=raw["description"],
         )
-

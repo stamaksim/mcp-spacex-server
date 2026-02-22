@@ -9,6 +9,7 @@ from src.schemas import ExecuteToolResponse, ToolManifest, ToolParameters, ToolP
 from src.tools.latest_launch_tool import LatestLaunchTool
 from src.tools.launch_by_id_tool import LaunchByIdTool
 from src.tools.launch_tool import SpaceXLaunchTool
+from src.tools.rocket_tool import SpaceXRocketTool
 
 
 class ToolRegistry:
@@ -43,7 +44,7 @@ class ToolRegistry:
             "list_launches": SpaceXLaunchTool(client),
             "get_launch_by_id": LaunchByIdTool(client),
             # "list_rockets": RocketListTool(client),      # TODO: Not yet implemented
-            # "get_rocket_by_id": RocketTool(client),      # TODO: Not yet implemented
+            "get_rocket_by_id": SpaceXRocketTool(client),
             "get_latest_launch": LatestLaunchTool(client),
         }
 
@@ -86,6 +87,23 @@ class ToolRegistry:
                         )
                     },
                     required=["launch_id"],
+                ),
+            ),
+            ToolManifest(
+                name="get_rocket_by_id",
+                description="Retrieve detailed information about a specific SpaceX rocket "
+                            "using its unique identifier.",
+                parameters=ToolParameters(
+                    type="object",
+                    properties={
+                        "rocket_id": ToolParameterSchema(
+                            type="string",
+                            description="The unique identifier of the SpaceX rocket "
+                                        "(24-character hexadecimal string, e.g., "
+                                        "'5e9d0d95eda69955f709d1eb')",
+                        )
+                    },
+                    required=["rocket_id"],
                 ),
             ),
             # Add new tool manifests here when implementing new tools:
