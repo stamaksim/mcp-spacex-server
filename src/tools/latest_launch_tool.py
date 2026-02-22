@@ -1,7 +1,7 @@
 from typing import Any
 
+from src.schemas import LaunchResponse
 from src.spacex_client import SpaceXClient
-from src.tools.schemas import LaunchResponse
 
 
 class LatestLaunchTool:

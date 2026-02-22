@@ -1,8 +1,8 @@
 # Importing tools
 from typing import Any
 
-from spacex_client import SpaceXClient
-from tools.schemas import LaunchResponse
+from src.schemas import LaunchResponse
+from src.spacex_client import SpaceXClient
 
 
 class SpaceXLaunchTool:
