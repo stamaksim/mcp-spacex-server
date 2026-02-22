@@ -23,9 +23,7 @@ class RocketResponse(BaseModel):
 
 # Request model used when executing a tool
 class ExecuteToolRequest(BaseModel):
-    ok: bool
-    arguments: dict[str, Any] = None  # Contains arguments passed by the client
-    error: str | None = None
+    arguments: dict[str, Any]  # Contains arguments passed by the client
 
 
 # Standard response returned after tool execution
