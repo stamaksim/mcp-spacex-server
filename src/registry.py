@@ -9,6 +9,7 @@ from src.schemas import ExecuteToolResponse, ToolManifest, ToolParameters, ToolP
 from src.tools.latest_launch_tool import LatestLaunchTool
 from src.tools.launch_by_id_tool import LaunchByIdTool
 from src.tools.launch_tool import SpaceXLaunchTool
+from src.tools.rocket_list_tool import SpaceXRocketListTool
 from src.tools.rocket_tool import SpaceXRocketTool
 
 
@@ -43,7 +44,7 @@ class ToolRegistry:
         self.tools = {
             "list_launches": SpaceXLaunchTool(client),
             "get_launch_by_id": LaunchByIdTool(client),
-            # "list_rockets": RocketListTool(client),      # TODO: Not yet implemented
+            "list_rockets": SpaceXRocketListTool(client),
             "get_rocket_by_id": SpaceXRocketTool(client),
             "get_latest_launch": LatestLaunchTool(client),
         }
@@ -106,16 +107,15 @@ class ToolRegistry:
                     required=["rocket_id"],
                 ),
             ),
-            # Add new tool manifests here when implementing new tools:
-            # ToolManifest(
-            #     name="list_rockets",
-            #     description="Retrieve a list of all SpaceX rockets.",
-            #     parameters=ToolParameters(
-            #         type="object",
-            #         properties={},
-            #         required=[],
-            #     ),
-            # ),
+            ToolManifest(
+                name="list_rockets",
+                description="Retrieve a list of all SpaceX rockets.",
+                parameters=ToolParameters(
+                    type="object",
+                    properties={},
+                    required=[],
+                ),
+            ),
         ]
 
     async def execute(

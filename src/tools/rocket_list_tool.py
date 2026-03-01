@@ -1,7 +1,6 @@
-from typing import List
 
-from src.spacex_client import SpaceXClient
 from src.schemas import RocketResponse
+from src.spacex_client import SpaceXClient
 
 
 class SpaceXRocketListTool:
@@ -25,7 +24,7 @@ class SpaceXRocketListTool:
     def __init__(self, client: SpaceXClient) -> None:
         self.client = client
 
-    async def execute(self, arguments: dict) -> List[RocketResponse]:
+    async def execute(self, arguments: dict) -> list[RocketResponse]:
         """
         Executes the rocket list retrieval process.
 
