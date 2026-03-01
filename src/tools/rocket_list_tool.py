@@ -4,7 +4,7 @@ from src.spacex_client import SpaceXClient
 from src.schemas import RocketResponse
 
 
-class SpaceXRocketTool:
+class SpaceXRocketListTool:
     """
     Tool responsible for retrieving and validating the list of SpaceX rockets.
 
@@ -25,7 +25,7 @@ class SpaceXRocketTool:
     def __init__(self, client: SpaceXClient) -> None:
         self.client = client
 
-    async def execute(self, arguments: dict) -> List[dict]:
+    async def execute(self, arguments: dict) -> List[RocketResponse]:
         """
         Executes the rocket list retrieval process.
 
@@ -39,4 +39,4 @@ class SpaceXRocketTool:
 
         validated = [RocketResponse.model_validate(r) for r in raw_rockets]
 
-        return [r.model_dump() for r in validated]
+        return validated
