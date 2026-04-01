@@ -155,7 +155,7 @@ Install dependencies
 
 Run server
 ```bash
-  uv run uvicorn src.main:app --reload
+  uv run uvicorn main:app --reload
 ```
 
 Access:
